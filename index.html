@@ -1,0 +1,101 @@
+<html>
+<head>
+<title>Twitter Reader</title>
+<link rel="stylesheet" type="text/css"
+	href="bootstrap-responsive.min.css">
+<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+	
+</script>
+<script src="bootstrap.min.js">
+	
+</script>
+
+
+<style type="text/css">
+body,html {
+	height: 100%;
+	overflow: hidden
+}
+
+.widgets {
+	position: relative;
+	top: -1050px;
+	left: 650px;
+}
+
+::-webkit-scrollbar {
+	display: none;
+}
+
+#tweets .twtr-widget,#tweets .twtr-doc {
+	width: 100%;
+	height: 100%;
+}
+
+* {
+	cursor: none;
+}
+</style>
+</head>
+<body background="bg.png" style="background-repeat: no-repeat;">
+
+	<div class="full" Id="full" align="right">
+
+		<a id="twitter" class="twitter-timeline full span4" height=1080
+			data-chrome="nofooter noscrollbar noheader noborders"
+			href="https://twitter.com/RucheNumerique"
+			data-widget-id="363232149488422912">Tweets de @RucheNumerique</a>
+
+		<script>
+			!function(d, s, id) {
+				var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/
+						.test(d.location) ? 'http' : 'https';
+				if (!d.getElementById(id)) {
+					js = d.createElement(s);
+					js.id = id;
+					js.src = p + "://platform.twitter.com/widgets.js";
+					fjs.parentNode.insertBefore(js, fjs);
+				}
+			}(document, "script", "twitter-wjs");
+		</script>
+
+		<div class="widgets">
+			<div class="span3" id="clock_id">
+				<a href="http://time.is/Le_Mans" id="time_is_link"
+					style="font-size: 80px"></a> <span id="Le_Mans_z71f"
+					style="font-size: 80px"></span>
+				<script src="http://widget.time.is/fr.js"></script>
+				<script>
+					time_is_widget.init({
+						Le_Mans_z71f : {
+							template : "<br/>TIME",
+							time_format : "hours:minutes",
+						}
+					});
+				</script>
+			</div>
+
+			<div id="widget_6c33584a3796598f83b077ed6f116a52" class=" span3"
+				align="right">
+				<a
+					href="http://www.my-meteo.fr/previsions+meteo+france/le+mans.html"
+					title="M&eacute;t&eacute;o &agrave; Le Mans">M&eacute;t&eacute;o
+					&agrave; Le Mans</a>
+				<script type="text/javascript">
+					(function() {
+						var my = document.createElement("script");
+						my.type = "text/javascript";
+						my.async = true;
+						my.src = "http://www.my-meteo.fr/meteo+webmaster/widget/js2.php?ville=234&format=carre&nb_jours=3&temps&icones&precip&c1=414141&c2=a1a1a1&c3=d4d4d4&c4=ffffff&c5=0f6eaa&c6=d12e2e&police=5&t_icones=8&x=336&y=213&id=6c33584a3796598f83b077ed6f116a52";
+						var z = document.getElementsByTagName("script")[0];
+						z.parentNode.insertBefore(my, z);
+					})();
+				</script>
+			</div>
+		</div>
+
+	</div>
+</body>
+</html>
