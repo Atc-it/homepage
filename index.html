@@ -20,15 +20,9 @@
 <style type="text/css">
 body,html {
 	height: 100%;
-	overflow: hidden
+        overflow: hidden;
+        margin-right:-11;
 }
-
-.clock {
-	position: relative;
-	top: -1050px;
-	left: 600px;
-}
-
 
 ::-webkit-scrollbar {
 	display: none;
@@ -45,43 +39,35 @@ body,html {
 </style>
 </head>
 <body background="bg.png" style="background-repeat: no-repeat;">
+  
+<div class="container-fluid">
+  <div class="row-fluid" align="right">
+    <div class="span8">
+      
+	<div class="span6 offset5" id="fancyClock"></div>
 
-	<div class="full" Id="full" align="right">
+	<script type="text/javascript" src="http://voap.weather.com/weather/oap/FRXX0048?template=ALERV&par=3000000007&unit=1&key=twciweatherwidget"></script>
+
+    </div>
+
+
+    <div class="span4">
+      <a id="twitter" class="twitter-timeline full" height=1082
+	 data-chrome="nofooter noscrollbar noheader noborders"
+	 href="https://twitter.com/search?q=RucheNumerique+-RT"
+	 data-widget-id="372283934421176320">RucheNumerique</a>
+    
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+    </div>
+  </div>
+</div>
+
+    
 
 
 
+    
 
-
-		<a id="twitter" class="twitter-timeline full span4" height=1082
-			data-chrome="nofooter noscrollbar noheader noborders"
-			href="https://twitter.com/search?q=RucheNumerique+-RT"
-			data-widget-id="372283934421176320">RucheNumerique</a>
-
-	  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
-	  
-	    <div class="" id="clock_id">
-	      <div id="fancyClock"></div>
-	    </div>
-	  
-	    
-	    <div id="widget_6c33584a3796598f83b077ed6f116a52" class="meteo span3"
-		 align="right">
-	      <a
-		 href="http://www.my-meteo.fr/previsions+meteo+france/le+mans.html"
-		 title="M&eacute;t&eacute;o &agrave; Le Mans">M&eacute;t&eacute;o
-		&agrave; Le Mans</a>
-	      <script type="text/javascript">
-		(function() {
-		var my = document.createElement("script");
-		my.type = "text/javascript";
-		my.async = true;
-		my.src = "http://www.my-meteo.fr/meteo+webmaster/widget/js2.php?ville=234&format=carre&nb_jours=3&temps&icones&precip&c1=414141&c2=a1a1a1&c3=d4d4d4&c4=ffffff&c5=0f6eaa&c6=d12e2e&police=5&t_icones=8&x=336&y=213&id=6c33584a3796598f83b077ed6f116a52";
-		var z = document.getElementsByTagName("script")[0];
-		z.parentNode.insertBefore(my, z);
-		})();
-	      </script>
-	    </div>
-	</div>
 </body>
 </html>
