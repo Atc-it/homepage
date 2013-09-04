@@ -1,108 +1,112 @@
 <html>
-<head>
-<META HTTP-EQUIV="Refresh" CONTENT="1800;">
-<title>HomePage</title>
+    <head>
+        <META HTTP-EQUIV="Refresh" CONTENT="1800;">
+        <title>HomePage</title>
 
-<link rel="stylesheet" type="text/css"
-	href="jquery.tzineClock/jquery.tzineClock.css" />
-<link rel="stylesheet" type="text/css"
-	href="bootstrap-responsive.min.css">
-<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+        <link rel="stylesheet" type="text/css"
+              href="jquery.tzineClock/jquery.tzineClock.css" />
+        <link rel="stylesheet" type="text/css"
+              href="bootstrap-responsive.min.css">
+        <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
 
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script type="text/javascript" src="jquery.tzineClock/jquery.tzineClock.js"></script>
-<script type="text/javascript" src="script.js"></script>
-<script type="text/javascript" src="bootstrap.min.js"></script>
-<script type="text/javascript" src="jquery.zweatherfeed.min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script type="text/javascript" src="jquery.tzineClock/jquery.tzineClock.js"></script>
+        <script type="text/javascript" src="script.js"></script>
+        <script type="text/javascript" src="bootstrap.min.js"></script>
+        <script type="text/javascript" src="jquery.zweatherfeed.min.js"></script>
 
-<style type="text/css">
-body,html {
-	height: 100%;
-	overflow: hidden;
-	margin-right: -11;
-}
+        <style type="text/css">
+            body,html {
+                height: 100%;
+                overflow: hidden;
+                margin-right: -11;
+            }
 
-.weatherItem {
-	padding: 4em;
-	text-align: right;
-}
+            .weatherItem {
+                padding: 4em;
+                text-align: right;
+            }
 
-.weatherCity {
-	text-transform: uppercase;
-	font-size: 5.8em;
-	height: 80px;
-}
+            .weatherCity {
+                text-transform: uppercase;
+                font-size: 5.8em;
+                height: 80px;
+            }
 
-.weatherTemp {
-	font-size: 8.8em;
-	font-weight: bold;
-}
+            .weatherTemp {
+                font-size: 8.8em;
+                font-weight: bold;
+            }
 
-.weatherDesc,.weatherRange,.weatherWind,.weatherLink,.weatherForecastItem
-	{
-	font-size: 0em;
-}
+            .weatherDesc,.weatherRange,.weatherWind,.weatherLink,.weatherForecastItem
+            {
+                font-size: 0em;
+            }
 
-::-webkit-scrollbar {
-	display: none;
-}
+            ::-webkit-scrollbar {
+                display: none;
+            }
 
-#tweets .twtr-widget,#tweets .twtr-doc {
-	width: 100%;
-	height: 100%;
-}
+            #tweets .twtr-widget,#tweets .twtr-doc {
+                width: 100%;
+                height: 100%;
+            }
 
-* {
-	cursor: none;
-}
-</style>
-</head>
+            * {
+                cursor: none;
+            }
+        </style>
+    </head>
 
-<body background="bg.png" style="background-repeat: no-repeat;">
-	<div class="container-fluid">
-	
-		<div class="row-fluid" align="right">
-			<div class="span8">
-			
-				<div class="span6 offset7 row" id="fancyClock"></div>
-				<div class="row">
-					<div style="height: 600px"></div>
-				</div>
-				
-				
-				<div class="span5 row" id="weather">
-					<script type="text/javascript">
-						$(document).ready(function() {
-							$('#weather').weatherfeed([ 'FRXX0048' ], {
-								forecast : false
-							});
-						});
-					</script>
-				</div>
-			</div>
+    <body background="bg.png" style="background-repeat: no-repeat;">
+        <div class="container-fluid">
+
+            <div class="row-fluid" align="right">
+                <div class="span8">
+
+                    <div class="span6 offset7 row" id="fancyClock"></div>
+                    <div class="row">
+                        <div style="height: 400px"></div>
+                    </div>
 
 
-			<div class="span4">
-				<a class="twitter-timeline"
-					data-chrome="nofooter noscrollbar noheader noborders" height="1082"
-					href="https://twitter.com/search?q=RucheNumerique+-RT"
-					data-widget-id="372283934421176320">Tweets concernant
-					"RucheNumerique -RT" </a>
-				<script>
-					!function(d, s, id) {
-						var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/
-								.test(d.location) ? 'http' : 'https';
-						if (!d.getElementById(id)) {
-							js = d.createElement(s);
-							js.id = id;
-							js.src = p + "://platform.twitter.com/widgets.js";
-							fjs.parentNode.insertBefore(js, fjs);
-						}
-					}(document, "script", "twitter-wjs");
-				</script>
+                    <div class="span5" id="weather">
+                        <script type="text/javascript">
+                            $(document).ready(function() {
+                                $('#weather').weatherfeed(['FRXX0048'], {
+                                    forecast: false
+                                });
+                            });
+                        </script>
+                    </div>
+                    <div class="span6">
+                        <iframe src="https://www.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=600&amp;wkst=1&amp;bgcolor=%23c0c0c0&amp;src=ruchenumerique%40gmail.com&amp;color=%23333333&amp;ctz=Europe%2FParis" style=" border-width:0 " width="400" height="400" frameborder="0" scrolling="no"></iframe>
 
-			</div>
-		</div>
-	</div>
-</body>
+                    </div>
+                </div>
+
+
+                <div class="span4">
+                    <a class="twitter-timeline"
+                       data-chrome="nofooter noscrollbar noheader noborders" height="1082"
+                       href="https://twitter.com/search?q=RucheNumerique+-RT"
+                       data-widget-id="372283934421176320">Tweets concernant
+                        "RucheNumerique -RT" </a>
+                    <script>
+                        !function(d, s, id) {
+                            var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/
+                                    .test(d.location) ? 'http' : 'https';
+                            if (!d.getElementById(id)) {
+                                js = d.createElement(s);
+                                js.id = id;
+                                js.src = p + "://platform.twitter.com/widgets.js";
+                                fjs.parentNode.insertBefore(js, fjs);
+                            }
+                        }(document, "script", "twitter-wjs");
+                    </script>
+
+                </div>
+            </div>
+        </div>
+    </body>
 </html>
