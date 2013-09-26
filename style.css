@@ -110,6 +110,6 @@ body,html {
     height: 100%;
 }
 
-/* {
-//    cursor: none;
-}*/
+* {
+    cursor: none;
+}
