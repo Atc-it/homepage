@@ -1,234 +1,82 @@
 ﻿<html>
-    <head>
-      <meta http-equiv="refresh" content="3600" />
-        <title>HomePage</title>
+  <head>
+    <meta http-equiv="refresh" content="3600" />
+    <title>HomePage</title>
 
-	<script src='http://www.google.com/jsapi'></script>
-	<script id='jquery_loader'></script>
-	<script>
-	  function loadJQuery() {
-	     if (!navigator.onLine) {
-	        setTimeout("window.location.reload();", 5000);
-	    }
-	  }
-	</script>
+    <script src='http://www.google.com/jsapi'></script>
+    <script id='jquery_loader'></script>
+    <script>
+      function loadJQuery() {
+      if (!navigator.onLine) {
+      setTimeout("window.location.reload();", 5000);
+      }
+      }
+    </script>
 
-        <link rel="stylesheet" type="text/css"
-              href="jquery.tzineClock/jquery.tzineClock.css" />
-        <link rel="stylesheet" type="text/css"
-              href="bootstrap-responsive.min.css">
-        <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="jquery.tzineClock/jquery.tzineClock.css" />
+    <link rel="stylesheet" type="text/css" href="bootstrap-responsive.min.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-        <script type="text/javascript" src="jquery.tzineClock/jquery.tzineClock.js"></script>
-        <script type="text/javascript" src="script.js"></script>
-        <script type="text/javascript" src="bootstrap.min.js"></script>
-        <script type="text/javascript" src="jquery.zweatherfeed.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.tzineClock/jquery.tzineClock.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="bootstrap.min.js"></script>
+    <script type="text/javascript" src="jquery.zweatherfeed.min.js"></script>
+    <script type="text/javascript" src="http://www.google.com/jsapi?key=YOUR_KEY_HERE"></script>
 
-        <style type="text/css">
-            body,html {
-                height: 100%;
-                overflow: hidden;
-                margin-right: -11;
-            }
+</head>
 
-            .clockp {
-                position: fixed;
-                right: 600px;
-                top: 0px;
-                width: 600px;
-            }
-            
-            .twitterp {
-                position: fixed;
-                right: 0px;
-                top: 0px;
-                width: 500px;
-            }
-            
-            .weatherp{
-                position: fixed;
-                left: 50px;
-                top: 550px;
-                width: 500px;
-            }
+<body background="bg.png" style="background-repeat: no-repeat;">
 
-            .agendap{
-                position: fixed;
-                right: 520px;
-                top: 550px;
-                width: 600px;
-            }
-            
-            .weatherItem {
-                padding: 4em;
-                text-align: right;
-            }
 
-            .weatherCity {
-                text-transform: uppercase;
-                font-size: 5.8em;
-                height: 80px;
-            }
-
-            .weatherTemp {
-                font-size: 8.8em;
-                font-weight: bold;
-            }
-
-            .weatherDesc,.weatherRange,.weatherWind,.weatherLink,.weatherForecastItem
-            {
-                font-size: 0em;
-            }
-
-            ::-webkit-scrollbar {
-                display: none;
-            }
-
-            #tweets .twtr-widget,#tweets .twtr-doc {
-                width: 100%;
-                height: 100%;
-            }
-
-            * {
-                cursor: none;
-            }
-        </style>
-    </head>
-
-    <body background="bg.png" style="background-repeat: no-repeat;">
-
-        <div class="clockp" id="fancyClock"></div>
+  <div class="clockp" id="fancyClock"></div>
 
 
 
-        <div class="weatherp" id="weather">
-            <script type="text/javascript">
-                $(document).ready(function() {
-                    $('#weather').weatherfeed(['FRXX0048'], {
-                        forecast: false
-                    });
-                });
-            </script>
-        </div>
-
-        <div class="agendap">
-            <h1>Agenda</h1>
-            <table class="table">
-                <tbody>
-
-                    <tr>
-
-                        <td valign="top" style="padding:0 9px;border-collapse:collapse">
-                            <table align="left" border="0" cellpadding="0" cellspacing="0" style="border-collapse:collapse">
-                                <tbody><tr>
-                                        <td valign="top" style="border-collapse:collapse">
+  <div class="weatherp" id="weather">
+    <script type="text/javascript">
+      $(document).ready(function() {
+      $('#weather').weatherfeed(['FRXX0048'], {
+      forecast: false
+      });
+      });
+    </script>
+  </div>
 
 
+  <div class="agendap">
+    <h1>Agenda</h1>
+    <table class="table">
+    <tbody id="events"></tbody>
 
-                                            <img alt="" src="12_16_sept.png" width="100" style="max-width:100px;border:0;line-height:100%;outline:none;text-decoration:none;vertical-align:bottom;min-height:auto!important">
+    </table>
+  </div>
 
+  <div class="twitterp">
+    <a class="twitter-timeline"
+       data-chrome="nofooter noscrollbar noheader noborders" height="1082"
+       href="https://twitter.com/search?q=RucheNumerique+-RT"
+       data-widget-id="372283934421176320">Tweets concernant
+      "RucheNumerique -RT" </a>
+    <script>
+      !function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/
+      .test(d.location) ? 'http' : 'https';
+      if (!d.getElementById(id)) {
+      js = d.createElement(s);
+      js.id = id;
+      js.src = p + "://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+      }
+      }(document, "script", "twitter-wjs");
+    </script>
 
+  </div>
+  <script>
+    loadJQuery();    
+    loadCalendar('https://www.google.com/calendar/feeds/ruchenumerique@gmail.com/public/full');
+  </script>
 
-                                        </td>
-                                    </tr>
-                                </tbody></table>
-                            <table align="right" border="0" cellpadding="0" cellspacing="0" width="416" style="border-collapse:collapse">
-                                <tbody><tr>
-                                        <td valign="top" style="border-collapse:collapse;color:#606060;font-family:Helvetica;font-size:15px;line-height:150%;text-align:left">
-                                            <h4 style="display:block;font-family:Helvetica;font-size:16px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:normal;margin:0;text-align:left;color:#808080!important">
-                                                <strong style="font-size:12px"><span style="font-size:14px">Foire du Mans - Les 4 jours</span></strong></h4>
-                                            <div style="text-align:justify">
-                                                <span style="font-size:12px">L'équipe de la Ruche Numérique sera présente à la Foire des 4 Jours du Mans.</span></div>
-
-                                        </td>
-                                    </tr>
-                                </tbody></table>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td valign="top" style="padding:0 9px;border-collapse:collapse">
-                            <table align="left" border="0" cellpadding="0" cellspacing="0" style="border-collapse:collapse">
-                                <tbody><tr>
-                                        <td valign="top" style="border-collapse:collapse">
-
-
-
-                                            <img alt="" src="13_sept.png" width="100" style="max-width:100px;border:0;line-height:100%;outline:none;text-decoration:none;vertical-align:bottom;min-height:auto!important">
-
-
-
-                                        </td>
-                                    </tr>
-                                </tbody></table>
-                            <table align="right" border="0" cellpadding="0" cellspacing="0" width="416" style="border-collapse:collapse">
-                                <tbody><tr>
-                                        <td valign="top" style="border-collapse:collapse;color:#606060;font-family:Helvetica;font-size:15px;line-height:150%;text-align:left">
-                                            <h4 style="display:block;font-family:Helvetica;font-size:16px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:normal;margin:0;text-align:left;color:#808080!important">
-                                                <span style="font-size:14px">Aides aux entreprises du numériques</span></h4>
-                                            <p style="text-align:justify;color:#606060;font-family:Helvetica;font-size:15px;line-height:150%">
-                                                <span style="font-size:12px">De 8h30 à 10h, présentation des différents leviers de financement du développement des entreprises du numérique</span>.&nbsp;</p>
-
-                                        </td>
-                                    </tr>
-                                </tbody></table>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td valign="top" style="padding:0 9px;border-collapse:collapse">
-                            <table align="left" border="0" cellpadding="0" cellspacing="0" style="border-collapse:collapse">
-                                <tbody><tr>
-                                        <td valign="top" style="border-collapse:collapse">
-
-
-
-                                            <img alt="" src="17_sept.png" width="100" style="max-width:100px;border:0;line-height:100%;outline:none;text-decoration:none;vertical-align:bottom;min-height:auto!important">
-
-
-
-                                        </td>
-                                    </tr>
-                                </tbody></table>
-                            <table align="right" border="0" cellpadding="0" cellspacing="0" width="416" style="border-collapse:collapse">
-                                <tbody><tr>
-                                        <td valign="top" style="border-collapse:collapse;color:#606060;font-family:Helvetica;font-size:15px;line-height:150%;text-align:left">
-                                            <h4 style="display:block;font-family:Helvetica;font-size:16px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:normal;margin:0;text-align:left;color:#808080!important">
-                                                <span style="font-size:14px">Bee Numérique "Les Essentielles" - Communiquer sur les réseaux sociaux sans risquer de nuire à son image de marque</span></h4>
-                                            <p style="text-align:justify;color:#606060;font-family:Helvetica;font-size:15px;line-height:150%">
-                                                <span style="font-size:12px">De 14h à 16h à la Ruche Numérique : Comment utiliser les RSP de manière professionnelle : utiliser twitter et Facebook à des fins professionnelles. Développer son réseau professionnel avec Viadéo et LinkedIn.</span></p>
-
-                                        </td>
-                                    </tr>
-                                </tbody></table>
-                        </td>
-                    </tr>
-
-
-                </tbody>
-            </table>
-        </div>
-
-        <div class="twitterp">
-            <a class="twitter-timeline"
-               data-chrome="nofooter noscrollbar noheader noborders" height="1082"
-               href="https://twitter.com/search?q=RucheNumerique+-RT"
-               data-widget-id="372283934421176320">Tweets concernant
-                "RucheNumerique -RT" </a>
-            <script>
-                !function(d, s, id) {
-                    var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/
-                            .test(d.location) ? 'http' : 'https';
-                    if (!d.getElementById(id)) {
-                        js = d.createElement(s);
-                        js.id = id;
-                        js.src = p + "://platform.twitter.com/widgets.js";
-                        fjs.parentNode.insertBefore(js, fjs);
-                    }
-                }(document, "script", "twitter-wjs");
-            </script>
-
-        </div>
-	<script>loadJQuery();</script>
-
-    </body>
+</body>
 </html>
