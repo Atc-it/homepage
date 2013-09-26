@@ -33,7 +33,7 @@ p {
     background: linear-gradient(top, #e85000 0%, #7a0909 100%);
     background: -moz-linear-gradient(top, #e85000 0%, #7a0909 100%);
     background: -webkit-linear-gradient(top, #e85000 0%, #7a0909 100%);
-    font-size: 40px; font-weight: bold; color: #fff; text-transform: uppercase; 
+    font-size: 30px; font-weight: bold; color: #fff; text-transform: uppercase; 
     display: block;
     border-top: 3px solid #a13838;
     border-radius: 0 0 10px 10px;

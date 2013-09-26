@@ -94,6 +94,8 @@ function handleGDError(e) {
 }
 
 
+var month = ["jan", "fev", "mars", "avr", "mai", "juin", "jui", "aout", "sept", "oct", "nov", "dec"];
+
 var feeded = false;
 /**
  * Callback function for the Google data JS client library to call with a feed 
@@ -134,7 +136,7 @@ function listEvents(feedRoot) {
 	    startDateTime = times[0].getStartTime();
 	    startJSDate = startDateTime.getDate();
 	}
-	var dateString = " <div class=\"date\"><p>" + startJSDate.getDate() + "<span>" + (startJSDate.getMonth() + 1) + "</span></p>";
+	var dateString = " <div class=\"date\"><p>" + startJSDate.getDate() + "<span>" + month[startJSDate.getMonth()] + "</span></p>";
 //	if (!startDateTime.isDateOnly()) {
 //	    dateString += " " + startJSDate.getHours() + ":" + 
 //		padNumber(startJSDate.getMinutes());
@@ -144,7 +146,9 @@ function listEvents(feedRoot) {
 	tr.appendChild(td);
 
 	td = document.createElement('td');
-	td.innerHTML = "<h4>" + title + "</h4>" + content;
+	td.innerHTML = "<h4>" + title
+	    + (!startDateTime.isDateOnly() ?  " | " + startJSDate.getHours() + "h" +padNumber(startJSDate.getMinutes()) : "") + "</h4> "
+	    + content;
         tr.appendChild(td);
 	console.log(entry);
 	
