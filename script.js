@@ -162,17 +162,15 @@ function listEvents(feedRoot) {
 google.setOnLoadCallback(init);
 //-->
 function loadTramdata() {
-    console.log("sadfasdf");
     $.getJSON("http://timeoapi.haum.org/v1/stations/807/T1_A?callback=?", null, function(a) {
-        console.log(a);
         var eventDiv = document.getElementById('tram');        
 
-        eventDiv.innerHTML = "vos prochains trams :<br/>vers centre-ville dans <br/>" + a.stops[0] + " et " + a.stops[1] + " !";
+        eventDiv.innerHTML = "vos prochains trams :<br/>vers centre-ville dans <br/>" + a.stops[0] + " puis " + a.stops[1] + " !";
 
 
 
     });
-    // setTimeout(loadTramdata(), 60000); // attente : 2'30"
+     setTimeout(function() {loadTramdata()}, 60000);
 
 }
 
