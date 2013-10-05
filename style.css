@@ -73,6 +73,15 @@ body,html {
     width: 500px;
 }
 
+.tramp{
+    position: fixed;
+    left: 50px;
+    top: 750px;
+    width: 500px;
+    font-size:40px;
+    line-height: 50px;
+}
+
 .agendap{
     position: fixed;
     right: 520px;

@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function() {
     /* This code is executed after the DOM has been completely loaded */
 
     $('#fancyClock').tzineClock();
@@ -12,6 +12,8 @@ function init() {
     google.gdata.client.init(handleGDError);
     // load the code.google.com developer calendar
     loadDeveloperCalendar();
+
+    loadTramdata();
 }
 
 /**
@@ -26,7 +28,7 @@ function loadDeveloperCalendar() {
  */
 function padNumber(num) {
     if (num <= 9) {
-	return "0" + num;
+        return "0" + num;
     }
     return num;
 }
@@ -36,11 +38,11 @@ function padNumber(num) {
  * argument and calls loadCalendar with the calendarUrl value.
  *
  * @param {string} calendarAddress is the email-style address for the calendar
- */ 
+ */
 function loadCalendarByAddress(calendarAddress) {
     var calendarUrl = 'https://www.google.com/calendar/feeds/' +
-        calendarAddress + 
-        '/public/full';
+            calendarAddress +
+            '/public/full';
     loadCalendar(calendarUrl);
 }
 
@@ -50,10 +52,10 @@ function loadCalendarByAddress(calendarAddress) {
  * function is called to process the feed results.
  *
  * @param {string} calendarUrl is the URL for a public calendar feed
- */  
+ */
 function loadCalendar(calendarUrl) {
-    var service = new 
-    google.gdata.calendar.CalendarService('gdata-js-client-samples-simple');
+    var service = new
+            google.gdata.calendar.CalendarService('gdata-js-client-samples-simple');
     var query = new google.gdata.calendar.CalendarEventQuery(calendarUrl);
     query.setOrderBy('starttime');
     query.setSortOrder('ascending');
@@ -74,22 +76,22 @@ function loadCalendar(calendarUrl) {
  * @param {Error} e is an instance of an Error 
  */
 function handleGDError(e) {
-    document.getElementById('jsSourceFinal').setAttribute('style', 
-							  'display:none');
+    document.getElementById('jsSourceFinal').setAttribute('style',
+            'display:none');
     if (e instanceof Error) {
-	/* alert with the error line number, file and message */
-	alert('Error at line ' + e.lineNumber +
-              ' in ' + e.fileName + '\n' +
-              'Message: ' + e.message);
-	/* if available, output HTTP error code and status text */
-	if (e.cause) {
-	    var status = e.cause.status;
-	    var statusText = e.cause.statusText;
-	    alert('Root cause: HTTP error ' + status + ' with status text of: ' + 
-		  statusText);
-	}
+        /* alert with the error line number, file and message */
+        alert('Error at line ' + e.lineNumber +
+                ' in ' + e.fileName + '\n' +
+                'Message: ' + e.message);
+        /* if available, output HTTP error code and status text */
+        if (e.cause) {
+            var status = e.cause.status;
+            var statusText = e.cause.statusText;
+            alert('Root cause: HTTP error ' + status + ' with status text of: ' +
+                    statusText);
+        }
     } else {
-	alert(e.toString());
+        alert(e.toString());
     }
 }
 
@@ -106,53 +108,52 @@ var feeded = false;
  * placed in a div called 'calendarTitle'
  *
  * @param {json} feedRoot is the root of the feed, containing all entries 
- */ 
+ */
 function listEvents(feedRoot) {
     if (feeded)
-	return;
+        return;
     feeded = true;
     var entries = feedRoot.feed.getEntries();
     var eventDiv = document.getElementById('events');
     if (eventDiv.childNodes.length > 0) {
-	eventDiv.removeChild(eventDiv.childNodes[0]);
-    }  
+        eventDiv.removeChild(eventDiv.childNodes[0]);
+    }
 
-    
+
     /* loop through each event in the feed */
     var len = entries.length < 3 ? entries.length : 3;
     for (var i = 0; i < len; i++) {
 
-	var tr = document.createElement('tr');
+        var tr = document.createElement('tr');
 
-	var entry = entries[i];
-	var title = entry.getTitle().getText();
-	var content = entry.getContent().getText();
-	
-	//stocage de la date
-	var startDateTime = null;
-	var startJSDate = null;
-	var times = entry.getTimes();
-	if (times.length > 0) {
-	    startDateTime = times[0].getStartTime();
-	    startJSDate = startDateTime.getDate();
-	}
-	var dateString = " <div class=\"date\"><p>" + startJSDate.getDate() + "<span>" + month[startJSDate.getMonth()] + "</span></p>";
+        var entry = entries[i];
+        var title = entry.getTitle().getText();
+        var content = entry.getContent().getText();
+
+        //stocage de la date
+        var startDateTime = null;
+        var startJSDate = null;
+        var times = entry.getTimes();
+        if (times.length > 0) {
+            startDateTime = times[0].getStartTime();
+            startJSDate = startDateTime.getDate();
+        }
+        var dateString = " <div class=\"date\"><p>" + startJSDate.getDate() + "<span>" + month[startJSDate.getMonth()] + "</span></p>";
 //	if (!startDateTime.isDateOnly()) {
 //	    dateString += " " + startJSDate.getHours() + ":" + 
 //		padNumber(startJSDate.getMinutes());
 //	}
-	var td = document.createElement('td');
-	td.innerHTML = dateString;
-	tr.appendChild(td);
-
-	td = document.createElement('td');
-	td.innerHTML = "<h4>" + title
-	    + (!startDateTime.isDateOnly() ?  " | " + startJSDate.getHours() + "h" +padNumber(startJSDate.getMinutes()) : "") + "</h4> "
-	    + content;
+        var td = document.createElement('td');
+        td.innerHTML = dateString;
         tr.appendChild(td);
-	console.log(entry);
-	
-	eventDiv.appendChild(tr);
+
+        td = document.createElement('td');
+        td.innerHTML = "<h4>" + title
+                + (!startDateTime.isDateOnly() ? " | " + startJSDate.getHours() + "h" + padNumber(startJSDate.getMinutes()) : "") + "</h4> "
+                + content;
+        tr.appendChild(td);
+
+        eventDiv.appendChild(tr);
     }
 
 
@@ -160,3 +161,19 @@ function listEvents(feedRoot) {
 
 google.setOnLoadCallback(init);
 //-->
+function loadTramdata() {
+    console.log("sadfasdf");
+    $.getJSON("http://timeoapi.haum.org/v1/stations/807/T1_A?callback=?", null, function(a) {
+        console.log(a);
+        var eventDiv = document.getElementById('tram');        
+
+        eventDiv.innerHTML = "vos prochains trams :<br/>vers centre-ville dans <br/>" + a.stops[0] + " et " + a.stops[1] + " !";
+
+
+
+    });
+    // setTimeout(loadTramdata(), 60000); // attente : 2'30"
+
+}
+
+
