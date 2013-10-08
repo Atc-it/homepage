@@ -1,84 +1,90 @@
 ﻿<html>
-  <head>
-    <meta http-equiv="refresh" content="3600" />
-    <title>HomePage</title>
+    <head>
+        <meta http-equiv="refresh" content="3600" />
+        <title>HomePage</title>
 
-    <script src='http://www.google.com/jsapi'></script>
-    <script id='jquery_loader'></script>
-    <script>
-      function loadJQuery() {
-      if (!navigator.onLine) {
-      setTimeout("window.location.reload();", 5000);
-      }
-      }
-    </script>
+        <script src='http://www.google.com/jsapi'></script>
+        <script id='jquery_loader'></script>
+        <script>
+            function loadJQuery() {
+                if (!navigator.onLine) {
+                    setTimeout("window.location.reload();", 5000);
+                }
+            }
+        </script>
 
-    <link rel="stylesheet" type="text/css" href="jquery.tzineClock/jquery.tzineClock.css" />
-    <link rel="stylesheet" type="text/css" href="bootstrap-responsive.min.css">
-    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="jquery.tzineClock/jquery.tzineClock.css" />
+        <link rel="stylesheet" type="text/css" href="bootstrap-responsive.min.css">
+        <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="style.css">
 
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script type="text/javascript" src="jquery.tzineClock/jquery.tzineClock.js"></script>
-    <script type="text/javascript" src="script.js"></script>
-    <script type="text/javascript" src="bootstrap.min.js"></script>
-    <script type="text/javascript" src="jquery.zweatherfeed.min.js"></script>
-    <script type="text/javascript" src="http://www.google.com/jsapi?key=YOUR_KEY_HERE"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script type="text/javascript" src="jquery.tzineClock/jquery.tzineClock.js"></script>
+        <script type="text/javascript" src="script.js"></script>
+        <script type="text/javascript" src="bootstrap.min.js"></script>
+        <script type="text/javascript" src="jquery.zweatherfeed.min.js"></script>
+        <script type="text/javascript" src="http://www.google.com/jsapi?key=YOUR_KEY_HERE"></script>
+        <script src='led_scroller.js'></script>
+        <link rel="stylesheet" type="text/css" href="led_scroller.css" media="all" />
 
-</head>
+    </head>
 
-<body background="bg.png" style="background-repeat: no-repeat;">
-
-
-  <div class="clockp" id="fancyClock"></div>
-
+    <body background="bg.png" style="background-repeat: no-repeat;">
 
 
-  <div class="weatherp" id="weather">
-    <script type="text/javascript">
-      $(document).ready(function() {
-      $('#weather').weatherfeed(['FRXX0048'], {
-      forecast: false
-      });
-      });
-    </script>
-  </div>
-  <div class="tramp well" id="tram">
-  </div>
-  
+        <div class="clockp" id="fancyClock"></div>
 
-  <div class="agendap">
-    <h1>Agenda</h1>
-    <table class="table">
-    <tbody id="events"></tbody>
 
-    </table>
-  </div>
 
-  <div class="twitterp">
-    <a class="twitter-timeline"
-       data-chrome="nofooter noscrollbar noheader noborders" height="1082"
-       href="https://twitter.com/search?q=RucheNumerique+-RT"
-       data-widget-id="372283934421176320">Tweets concernant
-      "RucheNumerique -RT" </a>
-    <script>
-      !function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/
-      .test(d.location) ? 'http' : 'https';
-      if (!d.getElementById(id)) {
-      js = d.createElement(s);
-      js.id = id;
-      js.src = p + "://platform.twitter.com/widgets.js";
-      fjs.parentNode.insertBefore(js, fjs);
-      }
-      }(document, "script", "twitter-wjs");
-    </script>
+        <div class="weatherp" id="weather">
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    $('#weather').weatherfeed(['FRXX0048'], {
+                        forecast: false
+                    });
+                });
+            </script>
+        </div>
+        <div class="tramp" id="tram">
 
-  </div>
-  <script>
-    loadJQuery();    
-    loadCalendar('https://www.google.com/calendar/feeds/ruchenumerique@gmail.com/public/full');
-  </script>
 
-</body>
+            <canvas id="led" width="600" height="140"></canvas>
+
+        </div>
+
+
+        <div class="agendap">
+            <h1>Agenda</h1>
+            <table class="table">
+                <tbody id="events"></tbody>
+
+            </table>
+        </div>
+
+        <div class="twitterp">
+            <a class="twitter-timeline"
+               data-chrome="nofooter noscrollbar noheader noborders" height="1082"
+               href="https://twitter.com/search?q=RucheNumerique+-RT"
+               data-widget-id="372283934421176320">Tweets concernant
+                "RucheNumerique -RT" </a>
+            <script>
+                !function(d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/
+                            .test(d.location) ? 'http' : 'https';
+                    if (!d.getElementById(id)) {
+                        js = d.createElement(s);
+                        js.id = id;
+                        js.src = p + "://platform.twitter.com/widgets.js";
+                        fjs.parentNode.insertBefore(js, fjs);
+                    }
+                }(document, "script", "twitter-wjs");
+            </script>
+
+        </div>
+        <script>
+            loadJQuery();
+            loadCalendar('https://www.google.com/calendar/feeds/ruchenumerique@gmail.com/public/full');
+        </script>
+
+    </body>
 </html>

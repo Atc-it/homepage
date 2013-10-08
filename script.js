@@ -14,6 +14,8 @@ function init() {
     loadDeveloperCalendar();
 
     loadTramdata();
+    sMessage = "test";
+    initClk();
 }
 
 /**
@@ -159,19 +161,31 @@ function listEvents(feedRoot) {
 
 }
 
+var message = " ";
 google.setOnLoadCallback(init);
 //-->
 function loadTramdata() {
-    $.getJSON("http://timeoapi.haum.org/v1/stations/807/T1_A?callback=?", null, function(a) {
-        var eventDiv = document.getElementById('tram');        
-
-        eventDiv.innerHTML = "vos prochains trams :<br/>vers centre-ville dans <br/>" + a.stops[0] + " puis " + a.stops[1] + " !";
-
-
-
+    $.getJSON("http://timeoapi.haum.org/v1/stations/825/T1_A?callback=?", null, function(a) {
+//        var eventDiv = document.getElementById('tram');     
+        message = "vos prochains trams en direction de UNIVERSITE dans " + a.stops[0] + " puis " + (a.stops[1].length < 8 ? "a " : "") + a.stops[1] + " !"
+        message = message.toLowerCase();
+        startAnim();
     });
-     setTimeout(function() {loadTramdata()}, 60000);
+    setTimeout(function() {
+        loadTramdata2()
+    }, 30000);
 
 }
 
+function loadTramdata2() {
+    $.getJSON("http://timeoapi.haum.org/v1/stations/826/T1_R?callback=?", null, function(a) {
+//        var eventDiv = document.getElementById('tram');     
+        message = "vos prochains trams en direction de ESPAL - ANTARES MMArena dans " + a.stops[0] + " puis " + (a.stops[1].length < 8 ? "a " : "") + a.stops[1] + " !"
+        message = message.toLowerCase();
+        startAnim();
+    });
+    setTimeout(function() {
+        loadTramdata()
+    }, 30000);
 
+}
