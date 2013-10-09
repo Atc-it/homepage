@@ -13,9 +13,9 @@ function init() {
     // load the code.google.com developer calendar
     loadDeveloperCalendar();
 
-    loadTramdata();
-    sMessage = "test";
-    initClk();
+//    loadTramdata();
+//    sMessage = "test";
+//    initClk();
 }
 
 /**
