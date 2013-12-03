@@ -24,18 +24,13 @@
         <script type="text/javascript" src="bootstrap.min.js"></script>
         <script type="text/javascript" src="jquery.zweatherfeed.min.js"></script>
         <script type="text/javascript" src="http://www.google.com/jsapi?key=YOUR_KEY_HERE"></script>
-        <script src='led_scroller.js'></script>
-        <link rel="stylesheet" type="text/css" href="led_scroller.css" media="all" />
+
+	<script type="text/javascript" src="snowstorm.js"></script>
 
     </head>
 
     <body background="bg.png" style="background-repeat: no-repeat;">
-
-
         <div class="clockp" id="fancyClock"></div>
-
-
-
         <div class="weatherp" id="weather">
             <script type="text/javascript">
                 $(document).ready(function() {
@@ -45,14 +40,6 @@
                 });
             </script>
         </div>
-<!--        <div class="tramp" id="tram">
-
-
-            <canvas id="led" width="600" height="140"></canvas>
-
-        </div>-->
-
-
         <div class="agendap">
             <h1>Agenda</h1>
             <table class="table">
@@ -60,7 +47,6 @@
 
             </table>
         </div>
-
         <div class="twitterp">
             <a class="twitter-timeline"
                data-chrome="nofooter noscrollbar noheader noborders" height="1082"
@@ -85,6 +71,5 @@
             loadJQuery();
             loadCalendar('https://www.google.com/calendar/feeds/ruchenumerique@gmail.com/public/full');
         </script>
-
     </body>
 </html>
