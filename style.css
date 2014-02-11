@@ -68,18 +68,19 @@ body,html {
 
 .weatherp{
     position: fixed;
+
+
+}
+
+#map-canvas {
     left: 50px;
     top: 550px;
     width: 500px;
-}
+    height: 300px;
+    margin: 0px;
+    padding: 0px;
+    border-radius: 10px;
 
-.tramp{
-    position: fixed;
-    left: 50px;
-    top: 750px;
-    width: 500px;
-    font-size:35px;
-    line-height: 50px;
 }
 
 .agendap{
@@ -87,27 +88,6 @@ body,html {
     right: 520px;
     top: 550px;
     width: 600px;
-}
-
-.weatherItem {
-    padding: 4em;
-    text-align: right;
-}
-
-.weatherCity {
-    text-transform: uppercase;
-    font-size: 5.8em;
-    height: 80px;
-}
-
-.weatherTemp {
-    font-size: 8.8em;
-    font-weight: bold;
-}
-
-.weatherDesc,.weatherRange,.weatherWind,.weatherLink,.weatherForecastItem
-{
-    font-size: 0em;
 }
 
 ::-webkit-scrollbar {
