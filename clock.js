@@ -53,7 +53,7 @@ function zeroPad(num) {
 
 function setRing(time, type) {
     //circle
-    var percentage = 1;// type == 0 ? time / 24 : time / 60; 
+    var percentage = type == 0 ? time / 24 : time / 60; 
     var degrees = percentage * 360.0;
     var radians = degrees * (Math.PI / 180);
 
