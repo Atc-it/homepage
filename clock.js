@@ -107,7 +107,7 @@ function displayClock() {
     context.shadowColor = '#222';
     context.shadowOffsetX = 2;
     context.shadowOffsetY = 2;
-    context.shadowBlur = 2;
+    context.shadowBlur = 4;
 
     // render the date text
     context.font = '35pt' + settings.font.family;
