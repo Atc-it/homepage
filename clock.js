@@ -107,7 +107,7 @@ function displayClock() {
     context.clearRect(0, 0, 500, 500);
 
     // render text to canvas
-    context.font = 'bold 55pt ' + settings.font.family;
+    context.font = 'bold 48pt ' + settings.font.family;
     context.textBaseline = 'top';
 
     context.fillStyle = '#767571';
@@ -122,7 +122,7 @@ function displayClock() {
     context.fillText(textTime, x, y);
 
     // render the date text
-    context.font = '40pt' + settings.font.family;
+    context.font = '35pt' + settings.font.family;
     var textDate = dayOfWeek + ' ' + day + ' ' + month + ', ' + year;
 
     x = (450 - context.measureText(textDate).width) / 2;
