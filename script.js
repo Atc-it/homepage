@@ -1,10 +1,3 @@
-$(document).ready(function() {
-    /* This code is executed after the DOM has been completely loaded */
-
-    $('#fancyClock').tzineClock();
-
-});
-
 google.load("gdata", "2.x");
 
 function init() {

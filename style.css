@@ -54,9 +54,10 @@ body,html {
 
 .clockp {
     position: fixed;
-    right: 600px;
+    left: 45%;
+    width: 30%;
+    height: 40%;
     top: 0px;
-    width: 600px;
 }
 
 .twitterp {
