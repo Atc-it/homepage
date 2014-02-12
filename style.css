@@ -61,33 +61,30 @@ body,html {
 
 .twitterp {
     position: fixed;
-    right: 0px;
+    left: 77%;
     top: 0px;
-    width: 500px;
+    width: 23%;
 }
 
 .weatherp{
     position: fixed;
-
-
 }
 
 #map-canvas {
-    left: 50px;
-    top: 550px;
-    width: 500px;
-    height: 300px;
-    margin: 0px;
+    left: 5%;
+    top: 55%;
+    width: 30%;
+    height: 40%;
     padding: 0px;
-    border-radius: 10px;
-
 }
 
 .agendap{
     position: fixed;
-    right: 520px;
-    top: 550px;
-    width: 600px;
+    left: 40%;
+    top: 55%;
+    height: 40%;
+    width: 30%;
+    margin-top: -40px;
 }
 
 ::-webkit-scrollbar {
