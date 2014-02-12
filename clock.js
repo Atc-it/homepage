@@ -59,8 +59,8 @@ function setRing(time, type) {
 
 
 
-    var x = type == 0 ? 85 : type == 1 ? 228 : 368;
-    var y = 67;
+    var x = type == 0 ? 85 : type == 1 ? 225 : 365;
+    var y = 70;
     var r = 55;
     var s = Math.PI / 2 * 3;
 
@@ -69,6 +69,11 @@ function setRing(time, type) {
     context.strokeStyle = type == 0 ? '#e15100' : type == 1 ? '#7400cc' : '#89b600';
     context.arc(x, y, r, s, s + radians, false);
     context.stroke();
+    
+    var textTime = "" + time;
+    var xt = x - (context.measureText(textTime).width / 2);
+    var yt = 30;
+    context.fillText(textTime, xt, yt);
 }
 
 /**
@@ -87,27 +92,15 @@ function displayClock() {
     var month = months[dateTime.getMonth()].toUpperCase();
     var day = dateTime.getDate();
     var dayOfWeek = days[dateTime.getDay()].toUpperCase();
+
     var hours = zeroPad(dateTime.getHours());
-    if (dateTime.getHours() >= 13 && settings.timeFormat == '12hr') {
-        hours = hours - 12;
-    }
     var minutes = zeroPad(dateTime.getMinutes());
     var seconds = zeroPad(dateTime.getSeconds());
-    var ampm = (dateTime.getHours() >= 12) ? 'PM' : 'AM';
-
-    // set the time format (12 or 24 hour)
-    var textTime;
-    if (settings.timeFormat == '24hr') {
-        textTime = hours + '   ' + minutes + '   ' + seconds;
-    } else {
-        textTime = hours + '   ' + minutes + '  ' + seconds + '  ' + ampm;
-    }
-
+    
     // clear canvas
     context.clearRect(0, 0, 500, 500);
 
     // render text to canvas
-    context.font = 'bold 48pt ' + settings.font.family;
     context.textBaseline = 'top';
 
     context.fillStyle = '#767571';
@@ -115,11 +108,6 @@ function displayClock() {
     context.shadowOffsetX = 2;
     context.shadowOffsetY = 2;
     context.shadowBlur = 2;
-
-    // render the time text
-    var x = (450 - context.measureText(textTime).width) / 2;
-    var y = 25;
-    context.fillText(textTime, x, y);
 
     // render the date text
     context.font = '35pt' + settings.font.family;
@@ -130,6 +118,7 @@ function displayClock() {
     y = 135;
     context.fillText(textDate, x, y);
 
+    context.font = 'bold 48pt ' + settings.font.family;
     setRing(hours, 0);
     setRing(minutes, 1);
     setRing(seconds, 2);
