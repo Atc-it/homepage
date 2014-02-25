@@ -125,6 +125,9 @@ function listEvents(feedRoot) {
         var title = entry.getTitle().getText();
         var content = entry.getContent().getText();
 
+	if (content.length > 220)
+	    content = content.substring(0,220) + "...";
+
         //stocage de la date
         var startDateTime = null;
         var startJSDate = null;
