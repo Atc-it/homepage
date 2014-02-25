@@ -72,7 +72,7 @@
 
         <div class="agendap">
             <h1>Agenda</h1>
-            <table class="table">
+            <table class="table agendaCnt">
                 <tbody id="events"></tbody>
 
             </table>
@@ -98,7 +98,26 @@
         </div>
         <script>
             loadJQuery();
+	    var agendaTabSize = 0;
             loadCalendar('https://www.google.com/calendar/feeds/ruchenumerique@gmail.com/public/full');
+
+	    var pos = 60;
+	    var agPos = 0;
+
+	    setInterval(function(){scroller()},8000);
+	    function scroller()
+	    {
+	       pos += 140;
+	       if (++agPos > agendaTabSize){
+	          pos = 60;
+	          agPos = 0;
+	       }
+	       $(".agendap").animate({
+	          scrollTop : pos	    
+	       }, 2000);
+
+	    }
+
         </script>
     </body>
 </html>

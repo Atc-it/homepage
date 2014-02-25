@@ -116,7 +116,9 @@ function listEvents(feedRoot) {
 
 
     /* loop through each event in the feed */
-    var len = entries.length < 3 ? entries.length : 3;
+//    var len = entries.length < 3 ? entries.length : 3;
+    var len = entries.length;
+    agendaTabSize = len;
     for (var i = 0; i < len; i++) {
 
         var tr = document.createElement('tr');
@@ -136,7 +138,7 @@ function listEvents(feedRoot) {
             startDateTime = times[0].getStartTime();
             startJSDate = startDateTime.getDate();
         }
-        var dateString = " <div class=\"date\"><p>" + startJSDate.getDate() + "<span>" + month[startJSDate.getMonth()] + "</span></p>";
+        var dateString = " <div id=\"ag" + i + "\"class=\"date\"><p>" + startJSDate.getDate() + "<span>" + month[startJSDate.getMonth()] + "</span></p>";
 //	if (!startDateTime.isDateOnly()) {
 //	    dateString += " " + startJSDate.getHours() + ":" + 
 //		padNumber(startJSDate.getMinutes());
@@ -157,31 +159,4 @@ function listEvents(feedRoot) {
 
 }
 
-var message = " ";
-google.setOnLoadCallback(init);
-//-->
-function loadTramdata() {
-    $.getJSON("http://timeoapi.haum.org/v1/stations/825/T1_A?callback=?", null, function(a) {
-//        var eventDiv = document.getElementById('tram');     
-        message = "vos prochains trams en direction de UNIVERSITE dans " + a.stops[0] + " puis " + (a.stops[1].length < 8 ? "a " : "") + a.stops[1] + " !"
-        message = message.toLowerCase();
-        startAnim();
-    });
-    setTimeout(function() {
-        loadTramdata2()
-    }, 30000);
 
-}
-
-function loadTramdata2() {
-    $.getJSON("http://timeoapi.haum.org/v1/stations/826/T1_R?callback=?", null, function(a) {
-//        var eventDiv = document.getElementById('tram');     
-        message = "vos prochains trams en direction de ESPAL - ANTARES MMArena dans " + a.stops[0] + " puis " + (a.stops[1].length < 8 ? "a " : "") + a.stops[1] + " !"
-        message = message.toLowerCase();
-        startAnim();
-    });
-    setTimeout(function() {
-        loadTramdata()
-    }, 30000);
-
-}

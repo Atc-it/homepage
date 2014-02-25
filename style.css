@@ -90,9 +90,10 @@ body,html {
     position: fixed;
     left: 40%;
     top: 55%;
-    height: 40%;
+    height: 45%;
     width: 30%;
     margin-top: -40px;
+   overflow-y:scroll;
 }
 
 ::-webkit-scrollbar {
