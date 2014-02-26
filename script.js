@@ -122,13 +122,13 @@ function listEvents(feedRoot) {
     for (var i = 0; i < len; i++) {
 
         var tr = document.createElement('tr');
-
+	tr.setAttribute("id", "tr" + i);
         var entry = entries[i];
         var title = entry.getTitle().getText();
         var content = entry.getContent().getText();
 
-	if (content.length > 220)
-	    content = content.substring(0,220) + "...";
+	if (content.length > 200)
+	    content = content.substring(0,200) + "...";
 
         //stocage de la date
         var startDateTime = null;

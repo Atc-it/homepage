@@ -107,7 +107,8 @@
 	    setInterval(function(){scroller()},8000);
 	    function scroller()
 	    {
-	       pos += 140;
+	    console.log($("#tr" + agPos).height());
+	       pos += $("#tr" + agPos).height();
 	       if (++agPos > agendaTabSize){
 	          pos = 60;
 	          agPos = 0;
