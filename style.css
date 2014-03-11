@@ -41,8 +41,13 @@ body,html {
     height: 50%;
 }
 
+h4 {
+    font-size:30px;
+}
+
 .dayF {
     text-align:center;
+    font-size:40px;
     top: 50%;
     left:0%;
     width: 40%;
