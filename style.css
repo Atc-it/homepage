@@ -6,6 +6,11 @@ p {
     border: 0;
 }
 
+.col_left {
+    float: left;
+    width: 70%;
+    padding: 2%;
+}
 
 .date {
     margin-bottom:10px;
@@ -45,16 +50,23 @@ p {
 
 
 #bg {
+    float: left;
     background-image: url('bg.png');
     background-size: 100%;
     background-repeat: no-repeat;
-    background-position-y: 50%;
-    top: 0%;
-    left:0%;
     width: 40%;
-    height: 50%;
+    height: 20%;
 }
-
+#atc {
+    float: left;
+    background-image: url('logo-magpie.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 10%;
+    margin-top: 30px;
+    height: 20%; 
+     
+}
 
 body,html {
     height: 100%;
@@ -63,37 +75,40 @@ body,html {
 }
 
 .clockp {
-    position: fixed;
-    left: 45%;
+    float: right;
     width: 30%;
-    height: 30%;
-    top: 10%;
+    height: 20%;
 }
 
 .twitterp {
-    position: fixed;
-    left: 77%;
-    top: 0px;
-    width: 23.5%;
+    float: right;
+    width: 25%;
 }
+#fetedujour {
+    float: right;
+    width: 30%;
+    height: 10%;
+    font-size: 150%;
+    padding-bottom: 50px;
+    
+
+}
+#fetedujour p{
+    margin-top:5px;
+}
+    
 
 #map-canvas {
-    position: relative;
-    left: 5%;
-    top: 5%;
-    width: 30%;
-    height: 40%;
-    padding: 0px;
-}
-
-.agendap{
-    position: fixed;
-    left: 40%;
-    top: 55%;
+    float: left;
+    width: 45%;
     height: 45%;
-    width: 30%;
-    margin-top: -40px;
-   overflow-y:scroll;
+    
+}
+.agendap{
+    float: right;
+    height: 45%;
+    width: 40%;
+   overflow-y: scroll;
 }
 
 ::-webkit-scrollbar {

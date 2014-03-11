@@ -66,24 +66,35 @@
     </head>
 
     <body>
-        <div id="bg"></div>
-        <canvas class="clockp" id="clock"></canvas>
-        <div id="map-canvas"></div>
-
-        <div class="agendap">
-            <h1>Agenda</h1>
-            <table class="table agendaCnt">
-                <tbody id="events"></tbody>
-
-            </table>
+        <div class="col_left">
+            <div id="bg"></div>
+            <canvas class="clockp" id="clock"></canvas>
+            <br style="clear: both;"/>
+            <div id="fetedujour" class="">
+                <h4>Fête du jour:</h4>    
+                <div id="widget_nominis" class="css_nominis">
+                </div>
+            </div>
+            <script type="text/javascript" src="http://nominis.cef.fr/widgets/widget.php?id=widget_nominis&format=2"></script>
+            <br style="clear: both;"/>            
+            <div id="map-canvas"></div>
+            <div class="agendap">
+                <h1>Agenda</h1>
+                <table class="table agendaCnt">
+                    <tbody id="events"></tbody>
+                </table>
+            </div>
+            <br style="clear: both;"/>
+            <div id="atc"></div>
         </div>
         <div class="twitterp">
             <a class="twitter-timeline"
                data-chrome="nofooter noscrollbar noheader noborders" height="1082"
                href="https://twitter.com/search?q=RucheNumerique+-RT"
                data-widget-id="372283934421176320">Tweets concernant
-                "RucheNumerique -RT" </a>
+                "RucheNumerique -RT"</a>
             <script>
+            /*  Load Twitter TL  */
                 !function(d, s, id) {
                     var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/
                             .test(d.location) ? 'http' : 'https';
@@ -93,14 +104,15 @@
                         js.src = p + "://platform.twitter.com/widgets.js";
                         fjs.parentNode.insertBefore(js, fjs);
                     }
-                }(document, "script", "twitter-wjs");</script>
-
+                }(document, "script", "twitter-wjs");
+            </script>
         </div>
+        
         <script>
-            loadJQuery();
+        /*  Load google agenda  */
+        loadJQuery();
 	    var agendaTabSize = 0;
-            loadCalendar('https://www.google.com/calendar/feeds/ruchenumerique@gmail.com/public/full');
-
+        loadCalendar('https://www.google.com/calendar/feeds/ruchenumerique@gmail.com/public/full');
 	    var pos = 60;
 	    var agPos = 0;
 
@@ -116,9 +128,7 @@
 	       $(".agendap").animate({
 	          scrollTop : pos	    
 	       }, 2000);
-
 	    }
-
         </script>
     </body>
 </html>
