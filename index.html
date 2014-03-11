@@ -13,56 +13,12 @@
             }
         </script>
 
-        <link rel="stylesheet" type="text/css" href="bootstrap-responsive.min.css">
         <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="style.css">
 
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script type="text/javascript" src="jquery.min.js"></script>
         <script type="text/javascript" src="script.js"></script>
-        <script type="text/javascript" src="bootstrap.min.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=weather"></script>
         <script src="clock.js"></script>
-
-        <script type="text/javascript">
-
-
-            var position;
-            var address = "le Mans";
-            geocoder = new google.maps.Geocoder();
-            console.log(position);
-
-            geocoder.geocode({'address': address}, function(results, status) {
-                console.log(position);
-
-                if (status == google.maps.GeocoderStatus.OK) {
-                    position = results[0].geometry.location;
-                    console.log(position);
-                    var mapOptions = {
-                        zoom: 11,
-                        center: new google.maps.LatLng(position.d, position.e),
-                        panControl: false,
-                        zoomControl: false,
-                        mapTypeControl: false,
-                        scaleControl: false,
-                        streetViewControl: false,
-                        overviewMapControl: false
-                    };
-                    var map = new google.maps.Map(document.getElementById('map-canvas'),
-                            mapOptions);
-                    var weatherLayer = new google.maps.weather.WeatherLayer({
-                        temperatureUnits: google.maps.weather.TemperatureUnit.CELCIUS
-                    });
-                    weatherLayer.setMap(map);
-                    var cloudLayer = new google.maps.weather.CloudLayer();
-                    cloudLayer.setMap(map);
-                    google.maps.event.addDomListener(window, 'load');
-                } else {
-                    console.log('Geocode was not successful for the following reason: ' + status);
-                }
-            });
-
-        </script>
-
     </head>
 
     <body>
@@ -70,14 +26,13 @@
             <div id="bg"></div>
             <canvas class="clockp" id="clock"></canvas>
             <br style="clear: both;"/>
-            <div id="fetedujour" class="">
-                <h4>Fête du jour:</h4>    
-                <div id="widget_nominis" class="css_nominis">
-                </div>
+            <div id="fetedujour" class="dayF">
+              <h4>Fête du jour:</h4>    
+              <div id="widget_nominis" class="css_nominis">
+              </div>
+	      <script type="text/javascript" src="http://nominis.cef.fr/widgets/widget.php?id=widget_nominis&format=2"></script>
             </div>
-            <script type="text/javascript" src="http://nominis.cef.fr/widgets/widget.php?id=widget_nominis&format=2"></script>
-            <br style="clear: both;"/>            
-            <div id="map-canvas"></div>
+   
             <div class="agendap">
                 <h1>Agenda</h1>
                 <table class="table agendaCnt">
@@ -85,7 +40,7 @@
                 </table>
             </div>
             <br style="clear: both;"/>
-            <div id="atc"></div>
+            <div id="atc" class="logo"></div>
         </div>
         <div class="twitterp">
             <a class="twitter-timeline"
@@ -109,26 +64,26 @@
         </div>
         
         <script>
-        /*  Load google agenda  */
-        loadJQuery();
-	    var agendaTabSize = 0;
-        loadCalendar('https://www.google.com/calendar/feeds/ruchenumerique@gmail.com/public/full');
-	    var pos = 60;
-	    var agPos = 0;
-
-	    setInterval(function(){scroller()},8000);
-	    function scroller()
-	    {
+          /*  Load google agenda  */
+          loadJQuery();
+	  var agendaTabSize = 0;
+          loadCalendar('https://www.google.com/calendar/feeds/ruchenumerique@gmail.com/public/full');
+	  var pos = 60;
+	  var agPos = 0;
+	  
+	  setInterval(function(){scroller()},8000);
+	  function scroller()
+	  {
 	    console.log($("#tr" + agPos).height());
-	       pos += $("#tr" + agPos).height();
-	       if (++agPos > agendaTabSize){
-	          pos = 60;
-	          agPos = 0;
-	       }
-	       $(".agendap").animate({
-	          scrollTop : pos	    
-	       }, 2000);
+	    pos += $("#tr" + agPos).height();
+	    if (++agPos > agendaTabSize){
+	      pos = 60;
+	      agPos = 0;
 	    }
+	    $(".agendap").animate({
+	      scrollTop : pos	    
+	    }, 2000);
+	  }
         </script>
     </body>
 </html>
