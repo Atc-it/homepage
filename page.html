@@ -1,0 +1,91 @@
+﻿<html>
+    <head>
+        <meta http-equiv="refresh" content="3600" />
+        <title>HomePage</title>
+
+        <script src='http://www.google.com/jsapi'></script>
+        <script id='jquery_loader'></script>
+        <script>
+            function loadJQuery() {
+		setTimeout(function () {
+                	if (!navigator.onLine) {
+                	    window.location.reload();
+                	}
+		}, 5000);
+            }
+        </script>
+
+        <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="style.css">
+
+        <script type="text/javascript" src="jquery.min.js"></script>
+        <script type="text/javascript" src="script.js"></script>
+        <script src="clock.js"></script>
+    </head>
+
+    <body>
+        <div class="col_left">
+            <div id="bg"></div>
+            <canvas class="clockp" id="clock"></canvas>
+            <br style="clear: both;"/>
+            <div id="fetedujour" class="dayF">
+              <h4></h4>    
+              <div id="widget_nominis" class="css_nominis">
+              </div>
+	      <script type="text/javascript" src="http://nominis.cef.fr/widgets/widget.php?id=widget_nominis&format=2"></script>
+            </div>
+   
+            <div class="agendap">
+                <h1>Agenda</h1>
+                <table class="table agendaCnt">
+                    <tbody id="events"></tbody>
+                </table>
+            </div>
+            <br style="clear: both;"/>
+            <div id="atc" class="logo"></div>
+        </div>
+        <div class="twitterp">
+            <a class="twitter-timeline"
+               data-chrome="nofooter noscrollbar noheader noborders" height="1082"
+               href="https://twitter.com/search?q=RucheNumerique+-RT"
+               data-widget-id="372283934421176320">Tweets concernant
+                "RucheNumerique -RT"</a>
+            <script>
+            /*  Load Twitter TL  */
+                !function(d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/
+                            .test(d.location) ? 'http' : 'https';
+                    if (!d.getElementById(id)) {
+                        js = d.createElement(s);
+                        js.id = id;
+                        js.src = p + "://platform.twitter.com/widgets.js";
+                        fjs.parentNode.insertBefore(js, fjs);
+                    }
+                }(document, "script", "twitter-wjs");
+            </script>
+        </div>
+        
+        <script>
+          /*  Load google agenda  */
+          loadJQuery();
+	  var agendaTabSize = 0;
+          loadCalendar('https://www.google.com/calendar/feeds/ruchenumerique@gmail.com/public/full');
+	  var pos = 60;
+	  var agPos = 0;
+	  
+	  setInterval(function(){scroller()},8000);
+	  function scroller()
+	  {
+	    console.log($("#tr" + agPos).height());
+	    pos += $("#tr" + agPos).height();
+	    if (++agPos > agendaTabSize){
+	      pos = 60;
+	      agPos = 0;
+	    }
+	    $(".agendap").animate({
+	      scrollTop : pos	    
+	    }, 2000);
+	  }
+        </script>
+    </body>
+</html>
