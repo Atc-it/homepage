@@ -66,7 +66,7 @@ function setRing(time, type) {
 
     context.beginPath();
     context.lineWidth = 18;
-    context.strokeStyle = type == 0 ? '#e15100' : type == 1 ? '#7400cc' : '#89b600';
+    context.strokeStyle = type == 0 ? '#3abad6' : type == 1 ? '#157bb4' : '#22b0c3';
     context.arc(x, y, r, s, s + radians, false);
     context.stroke();
     

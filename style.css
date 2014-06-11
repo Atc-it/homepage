@@ -1,7 +1,17 @@
+/*Inclusion des bordures et du padding dans la hauteur et la largeur des éléments*/
+*, *:before, *:after{
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	box-sizing:border-box;
+}
+
 body,html {
     height: 100%;
     overflow: hidden;
     margin-right: -11;
+    background-image: url('generalBG.png');
+    background-repeat: no-repeat;
+    background-position: left bottom;
 }
 
 
@@ -22,7 +32,7 @@ body,html {
 .date p span {
     margin-top:30px;
     background: #e15200; 
-    font-size: 30px; font-weight: bold; color: #fff; text-transform: uppercase; 
+    font-size: 30px; font-weight: bold; color: #fff; text-transform: uppercase;
     display: block;
     border-top: 3px solid #a13838;
     border-radius: 0 0 10px 10px;
@@ -32,13 +42,18 @@ body,html {
 
 #bg {
     background-image: url('bg.png');
-    background-size: 100%;
+    background-size: 80%;
     background-repeat: no-repeat;
-    background-position-y: 50%;
+    background-position: center top;
     top: 0%;
     left:0%;
+    padding-left: 5%;
+    padding-top: 15%;
     width: 40%;
     height: 50%;
+}
+#bg img{
+    transform: scale(2);
 }
 
 
@@ -54,9 +69,9 @@ body,html {
 
 .logo {
     background-image: url('logo-magpie.png');
-    background-size: 50%;
+    background-size: 25%;
     background-repeat: no-repeat;
-    background-position-y: 50%;
+    background-position: 10% center;
     position: fixed;
     top: 70%;
     left:0%;
