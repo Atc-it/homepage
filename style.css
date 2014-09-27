@@ -9,7 +9,7 @@ body,html {
     height: 100%;
     overflow: hidden;
     margin-right: -11;
-    background-image: url('bg_forum.jpg');
+    background-image: url('bg_forum.png');
 		background-size: 80%;
     background-repeat: no-repeat;
     background-position: left bottom;
@@ -103,10 +103,10 @@ body,html {
 		background-repeat: no-repeat;
 		background-position: 90% center;
 		position: fixed;
-		top: 32%;
+		top: 25%;
 		left:0%;
 		width: 39%;
-		height: 80px;
+		height: 60px;
 
 }
 .hashtag {
