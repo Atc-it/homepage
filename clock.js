@@ -10,7 +10,7 @@ var canvas = null,
     },
     timeFormat: '24hr'
 };
-var scale = 1;
+var scale = 0.5;
 
 // resize the canvas to fill browser window dynamically
 window.addEventListener('resize', resizeCanvas, false);
@@ -53,7 +53,7 @@ function zeroPad(num) {
 
 function setRing(time, type) {
     //circle
-    var percentage = type == 0 ? time / 24 : time / 60; 
+    var percentage = type == 0 ? time / 24 : time / 60;
     var degrees = percentage * 360.0;
     var radians = degrees * (Math.PI / 180);
 
@@ -69,7 +69,7 @@ function setRing(time, type) {
     context.strokeStyle = type == 0 ? '#de5f1b' : type == 1 ? '#8a4091' : '#94c020';
     context.arc(x, y, r, s, s + radians, false);
     context.stroke();
-    
+
     var textTime = "" + time;
     var xt = x - (context.measureText(textTime).width / 2);
     var yt = 30;
@@ -96,7 +96,7 @@ function displayClock() {
     var hours = zeroPad(dateTime.getHours());
     var minutes = zeroPad(dateTime.getMinutes());
     var seconds = zeroPad(dateTime.getSeconds());
-    
+
     // clear canvas
     context.clearRect(0, 0, 500, 500);
 
@@ -110,7 +110,7 @@ function displayClock() {
     context.shadowBlur = 4;
 
     // render the date text
-    context.font = '35pt' + settings.font.family;
+    context.font = '30pt' + settings.font.family;
     var textDate = dayOfWeek + ' ' + day + ' ' + month + ', ' + year;
 
     x = (450 - context.measureText(textDate).width) / 2;
