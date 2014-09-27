@@ -1,85 +1,143 @@
 <html>
-    <head>
-        <meta http-equiv="refresh" content="3600" />
-        <title>HomePage</title>
 
-        <script src='http://www.google.com/jsapi'></script>
-        <script id='jquery_loader'></script>
-        <script>
-            function loadJQuery() {
-		setTimeout(function () {
-                	if (!navigator.onLine) {
-                	    window.location.reload();
-                	}
-		}, 5000);
-            }
-        </script>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="refresh" content="3600" />
+  <title>HomePage</title>
 
-        <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="style.css">
+  <script src='http://www.google.com/jsapi'></script>
+  <script id='jquery_loader'></script>
+  <script>
+    function loadJQuery() {
+      setTimeout(function() {
+        if (!navigator.onLine) {
+          window.location.reload();
+        }
+      }, 5000);
+    }
+  </script>
 
-        <script type="text/javascript" src="jquery.min.js"></script>
-        <script type="text/javascript" src="script.js"></script>
-        <script src="clock.js"></script>
-    </head>
+  <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
 
-    <body>
-        <div class="col_left">
-            <div id="bg"></div>
-            <canvas class="clockp" id="clock"></canvas>
-            <br style="clear: both;"/>
-            <div class="agendap">
-                <h1>Agenda</h1>
-                <table class="table agendaCnt">
-                    <tbody id="events"></tbody>
-                </table>
-            </div>
-            <br style="clear: both;"/>
-            <div id="atc" class="logo"></div>
-        </div>
-        <div class="twitterp">
-            <a class="twitter-timeline"
-               data-chrome="nofooter noscrollbar noheader noborders" height="1082"
-               href="https://twitter.com/search?q=RucheNumerique+-RT"
-               data-widget-id="372283934421176320">Tweets concernant
-     
+  <script type="text/javascript" src="jquery.min.js"></script>
+  <script type="text/javascript" src="script.js"></script>
+  <script src="clock.js"></script>
+</head>
+
+<body>
+  <div class="col_left">
+    <div id="bg"></div>
+    <canvas class="clockp" id="clock"></canvas>
+    <br style="clear: both;" />
+    <div class="hashtag">
+      Tweetez: #forumJeunes
+    </div>
+    <div class="agendap">
+      <h1>Agenda</h1>
+      <table class="table agendaCnt">
+        <tbody id="events">
+          <tr id="tr0">
+            <td>
+              <div id="ag0" class="date">
+                <p>16<span>Octobre</span>
+                </p>
+            </td>
+            <td>
+              <h4>Salon du stage par l'Université du Maine</h4>
+            </td>
+          </tr>
+          <tr id="tr2">
+            <td>
+              <div id="ag1" class="date">
+                <p style="font-size: 35px;">17-18<span>Janvier</span>
+                </p>
+            </td>
+            <td>
+              <h4>24h du code : Les développeurs s'affrontent pendant 24 heures</h4>
+            </td>
+          </tr>
+
+          <tr id="tr3">
+            <td>
+              <div id="ag3" class="date">
+                <p>~<span>Janvier</span>
+                </p>
+            </td>
+            <td>
+              <h4>Master class: Découvres les métiers du numérique -les métier du web social</h4>
+            </td>
+          </tr>
+          <tr id="tr4">
+            <td>
+              <div id="ag4" class="date">
+                <p>12<span>Avril</span>
+                </p>
+            </td>
+            <td>
+              <h4>Café Startup: viens rencontrer d'autres porteurs de projet, des professionnels...</h4>
+            </td>
+          </tr>
+
+          <tr id="tr5">
+            <td>
+              <div id="ag5" class="date">
+                <p>~<span>Mars</span>
+                </p>
+            </td>
+            <td>
+              <h4>1er startup WeekEnd Le Mans</h4>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      <br style="clear: both;" />
+      <div id="atc" class="logo"></div>
+      </div>
+      <div class="twitterp">
+        <a class="twitter-timeline" data-chrome="nofooter noscrollbar noheader noborders" height="1082" href="https://twitter.com/search?q=RucheNumerique+-RT" data-widget-id="372283934421176320">Tweets concernant
+
                 "RucheNumerique -RT"</a>
-            <script>
-            /*  Load Twitter TL  */
-                !function(d, s, id) {
-                    var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/
-                            .test(d.location) ? 'http' : 'https';
-                    if (!d.getElementById(id)) {
-                        js = d.createElement(s);
-                        js.id = id;
-                        js.src = p + "://platform.twitter.com/widgets.js";
-                        fjs.parentNode.insertBefore(js, fjs);
-                    }
-                }(document, "script", "twitter-wjs");
-            </script>
-        </div>
-        
         <script>
-          /*  Load google agenda  */
-          loadJQuery();
-	  var agendaTabSize = 0;
-          loadCalendar('https://www.google.com/calendar/feeds/ruchenumerique@gmail.com/public/full');
-	  var pos = 60;
-	  var agPos = 0;
-	  
-	  setInterval(function(){scroller()},8000);
-	  function scroller()
-	  {
-	    console.log($("#tr" + agPos).height());
-	    pos += $("#tr" + agPos).height();
-	    if (++agPos > agendaTabSize){
-	      pos = 60;
-	      agPos = 0;
-	    }
-	    $(".agendap").animate({
-	      scrollTop : pos	    
-	    }, 2000);
-	  }
+          /*  Load Twitter TL  */ ! function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0],
+              p = /^http:/
+              .test(d.location) ? 'http' : 'https';
+            if (!d.getElementById(id)) {
+              js = d.createElement(s);
+              js.id = id;
+              js.src = p + "://platform.twitter.com/widgets.js";
+              fjs.parentNode.insertBefore(js, fjs);
+            }
+          }(document, "script", "twitter-wjs");
         </script>
-    </body>
+      </div>
+
+      <script>
+        /*  Load google agenda  */
+        loadJQuery();
+        var agendaTabSize = 0;
+        loadCalendar('https://www.google.com/calendar/feeds/ruchenumerique@gmail.com/public/full');
+        var pos = 60;
+        var agPos = 0;
+
+        setInterval(function() {
+          scroller()
+        }, 8000);
+
+        function scroller() {
+          console.log($("#tr" + agPos).height());
+          pos += $("#tr" + agPos).height();
+          if (++agPos > agendaTabSize) {
+            pos = 60;
+            agPos = 0;
+          }
+          $(".agendap").animate({
+            scrollTop: pos
+          }, 2000);
+        }
+      </script>
+</body>
+
 </html>
