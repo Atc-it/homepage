@@ -1,4 +1,4 @@
-/*Inclusion des bordures et du padding dans la hauteur et la largeur des éléments*/
+/* Inclusion des bordures et du padding dans la hauteur et la largeur des éléments*/
 *, *:before, *:after{
 	-moz-box-sizing:border-box;
 	-webkit-box-sizing:border-box;
