@@ -1,10 +1,8 @@
-google.load("gdata", "2.x");
+//google.load("gdata", "2.x");
 
 function init() {
     // init the Google data JS client library with an error handler
-    google.gdata.client.init(handleGDError);
     // load the code.google.com developer calendar
-    loadDeveloperCalendar();
 
 //    loadTramdata();
 //    sMessage = "test";
@@ -35,30 +33,30 @@ function padNumber(num) {
  * @param {string} calendarAddress is the email-style address for the calendar
  */
 function loadCalendarByAddress(calendarAddress) {
-    var calendarUrl = 'https://www.google.com/calendar/feeds/' +
-            calendarAddress +
-            '/public/full';
+    nowdate = new Date();
+    var d = nowdate.getFullYear()+'-'+(nowdate.getMonth()+1)+'-'+nowdate.getDate()+'T00%3A00%3A00%2B00%3A00';
+    var calendarUrl = 'https://www.googleapis.com/calendar/v3/calendars/'+calendarAddress+'/events?timeMin='+d+'&key=AIzaSyD46IUOz_O6ZzbtAKDYE1MlQfESKE8EDAI';
+
     loadCalendar(calendarUrl);
 }
 
 /**
  * Uses Google data JS client library to retrieve a calendar feed from the specified
- * URL.  The feed is controlled by several query parameters and a callback 
+ * URL.  The feed is controlled by several query parameters and a callback
  * function is called to process the feed results.
  *
  * @param {string} calendarUrl is the URL for a public calendar feed
  */
 function loadCalendar(calendarUrl) {
-    var service = new
-            google.gdata.calendar.CalendarService('gdata-js-client-samples-simple');
-    var query = new google.gdata.calendar.CalendarEventQuery(calendarUrl);
-    query.setOrderBy('starttime');
-    query.setSortOrder('ascending');
-    query.setFutureEvents(true);
-    query.setSingleEvents(true);
-    query.setMaxResults(10);
-
-    service.getEventsFeed(query, listEvents, handleGDError);
+  console.log(calendarUrl);
+    $.ajax({
+      url: calendarUrl,
+      dataType: "json"
+    }).done(function(data) {
+      //console.log(data);
+      listEvents(data);
+    });
+    //service.getEventsFeed(query, listEvents, handleGDError);
 }
 
 /**
@@ -68,7 +66,7 @@ function loadCalendar(calendarUrl) {
  * a privileged environment using ClientLogin authentication, there may also
  * be an e.type attribute in some cases.
  *
- * @param {Error} e is an instance of an Error 
+ * @param {Error} e is an instance of an Error
  */
 function handleGDError(e) {
     document.getElementById('jsSourceFinal').setAttribute('style',
@@ -95,26 +93,28 @@ var month = ["jan", "fev", "mars", "avr", "mai", "juin", "jui", "aout", "sept", 
 
 var feeded = false;
 /**
- * Callback function for the Google data JS client library to call with a feed 
+ * Callback function for the Google data JS client library to call with a feed
  * of events retrieved.
  *
  * Creates an unordered list of events in a human-readable form.  This list of
  * events is added into a div called 'events'.  The title for the calendar is
  * placed in a div called 'calendarTitle'
  *
- * @param {json} feedRoot is the root of the feed, containing all entries 
+ * @param {json} feedRoot is the root of the feed, containing all entries
  */
 function listEvents(feedRoot) {
-    if (feeded)
-        return;
+  //console.log( "Sample of data:", feedRoot.slice( 0, 100 ) );
+  console.log(feedRoot);
+
+    if (feedRoot)
+        //return;
     feeded = true;
-    var entries = feedRoot.feed.getEntries();
+    var entries = feedRoot.items;
     var eventDiv = document.getElementById('events');
     if (eventDiv.childNodes.length > 0) {
         eventDiv.removeChild(eventDiv.childNodes[0]);
     }
-
-
+    console.log(entries);
     /* loop through each event in the feed */
 //    var len = entries.length < 3 ? entries.length : 3;
     var len = entries.length;
@@ -124,23 +124,26 @@ function listEvents(feedRoot) {
         var tr = document.createElement('tr');
 	tr.setAttribute("id", "tr" + i);
         var entry = entries[i];
-        var title = entry.getTitle().getText();
-        var content = entry.getContent().getText();
+        var title = entry.summary;
+        var content = entry.description ? entry.description : '';
 
 	if (content.length > 200)
 	    content = content.substring(0,200) + "...";
-
+    //  console.log(content);
         //stocage de la date
-        var startDateTime = null;
+        var startDateTime = new Date(entry.start.dateTime);
         var startJSDate = null;
-        var times = entry.getTimes();
+        var times = entry.start.dateTime;
         if (times.length > 0) {
-            startDateTime = times[0].getStartTime();
-            startJSDate = startDateTime.getDate();
+          //startDateTime = times[0].getStartTime();
+          //startDateTime = new Date();
+          //startJSDate = startDateTime.getDate();
+          startJSDate = new Date();
+
         }
-        var dateString = " <div id=\"ag" + i + "\"class=\"date\"><p>" + startJSDate.getDate() + "<span>" + month[startJSDate.getMonth()] + "</span></p>";
+        var dateString = " <div id=\"ag" + i + "\"class=\"date\"><p>" + startDateTime.getDate() + "<span>" + month[startDateTime.getMonth()] + "</span></p>";
 //	if (!startDateTime.isDateOnly()) {
-//	    dateString += " " + startJSDate.getHours() + ":" + 
+//	    dateString += " " + startJSDate.getHours() + ":" +
 //		padNumber(startJSDate.getMinutes());
 //	}
         var td = document.createElement('td');
@@ -149,7 +152,7 @@ function listEvents(feedRoot) {
 
         td = document.createElement('td');
         td.innerHTML = "<h4>" + title
-                + (!startDateTime.isDateOnly() ? " | " + startJSDate.getHours() + "h" + padNumber(startJSDate.getMinutes()) : "") + "</h4> "
+                + (startDateTime ? " | " + startDateTime.getHours() + "h" + padNumber(startDateTime.getMinutes()) : "") + "</h4> "
                 + content;
         tr.appendChild(td);
 
@@ -158,5 +161,3 @@ function listEvents(feedRoot) {
 
 
 }
-
-

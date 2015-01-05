@@ -42,7 +42,7 @@
                data-chrome="nofooter noscrollbar noheader noborders" height="1082"
                href="https://twitter.com/search?q=RucheNumerique+-RT"
                data-widget-id="372283934421176320">Tweets concernant
-     
+
                 "RucheNumerique -RT"</a>
             <script>
             /*  Load Twitter TL  */
@@ -58,15 +58,17 @@
                 }(document, "script", "twitter-wjs");
             </script>
         </div>
-        
+
         <script>
           /*  Load google agenda  */
           loadJQuery();
 	  var agendaTabSize = 0;
-          loadCalendar('https://www.google.com/calendar/feeds/ruchenumerique@gmail.com/public/full');
+        //  loadCalendar('https://www.googleapis.com/calendar/v3/calendars/ruchenumerique%40gmail.com/events?key=AIzaSyD46IUOz_O6ZzbtAKDYE1MlQfESKE8EDAI');
+          var calendarAddress = 'ruchenumerique%40gmail.com';
+          loadCalendarByAddress(calendarAddress)
 	  var pos = 60;
 	  var agPos = 0;
-	  
+
 	  setInterval(function(){scroller()},8000);
 	  function scroller()
 	  {
@@ -77,7 +79,7 @@
 	      agPos = 0;
 	    }
 	    $(".agendap").animate({
-	      scrollTop : pos	    
+	      scrollTop : pos
 	    }, 2000);
 	  }
         </script>
