@@ -35,7 +35,7 @@ function padNumber(num) {
 function loadCalendarByAddress(calendarAddress) {
     nowdate = new Date();
     var d = nowdate.getFullYear()+'-'+(nowdate.getMonth()+1)+'-'+nowdate.getDate()+'T00%3A00%3A00%2B00%3A00';
-    var calendarUrl = 'https://www.googleapis.com/calendar/v3/calendars/'+calendarAddress+'/events?timeMin='+d+'&key=AIzaSyD46IUOz_O6ZzbtAKDYE1MlQfESKE8EDAI';
+    var calendarUrl = 'https://www.googleapis.com/calendar/v3/calendars/'+calendarAddress+'/events?timeMin='+d+'&key=AIzaSyD46IUOz_O6ZzbtAKDYE1MlQfESKE8EDAI&orderBy=startTime&singleEvents=true';
 
     loadCalendar(calendarUrl);
 }
