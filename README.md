@@ -1,4 +1,4 @@
 homepage
 ========
 
-Page web affichant des informations basique sur la Ruche Numerique au Mans.
+Ecran affichant un fil twitter et QRcode pour les 24h du Mans.
