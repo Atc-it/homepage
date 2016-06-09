@@ -9,7 +9,7 @@ body,html {
     height: 100%;
     overflow: hidden;
     margin-right: -11;
-    background-image: url('bg_forum.png');
+    background-image: url('bg_forum.jpg');
 		background-size: 80%;
     background-repeat: no-repeat;
     background-position: left bottom;
@@ -42,14 +42,12 @@ body,html {
 
 
 #bg {
-    background-image: url('logo_forum.png');
-    background-size: 85%;
+    background-image: url('logo_cci.png');
+    background-size: 100%;
     background-repeat: no-repeat;
     background-position: left top;
-    top: 0%;
-    left:0%;
-    padding-left: 5%;
-    padding-top: 15%;
+		margin-top: 2.5%;
+		margin-left: 2%;
     width: 20%;
     height: 50%;
 }
